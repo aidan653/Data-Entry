@@ -32,20 +32,20 @@
             btnAddPosition = new Button();
             label1 = new Label();
             label2 = new Label();
-            panelPositions = new Positions();
             label3 = new Label();
             Submit = new Button();
             ddlPresets = new ComboBox();
             btnSave = new Button();
             btnLoad = new Button();
+            label4 = new Label();
+            panelPositions = new Panel();
             SuspendLayout();
             // 
             // btnAddPosition
             // 
-            btnAddPosition.Location = new Point(348, 19);
-            btnAddPosition.Margin = new Padding(2);
+            btnAddPosition.Location = new Point(497, 32);
             btnAddPosition.Name = "btnAddPosition";
-            btnAddPosition.Size = new Size(84, 23);
+            btnAddPosition.Size = new Size(120, 38);
             btnAddPosition.TabIndex = 2;
             btnAddPosition.Text = "Add Position";
             btnAddPosition.UseVisualStyleBackColor = true;
@@ -55,47 +55,35 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(11, 21);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(16, 35);
             label1.Name = "label1";
-            label1.Size = new Size(121, 21);
+            label1.Size = new Size(185, 32);
             label1.TabIndex = 3;
             label1.Text = "Added Positions";
             // 
             // label2
             // 
-            label2.Location = new Point(436, 14);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(623, 23);
             label2.Name = "label2";
-            label2.Size = new Size(144, 37);
+            label2.Size = new Size(206, 62);
             label2.TabIndex = 4;
             label2.Text = "Hover over position and press right shift to save";
             label2.Click += label2_Click_1;
             // 
-            // panelPositions
-            // 
-            panelPositions.AutoScroll = true;
-            panelPositions.BorderStyle = BorderStyle.FixedSingle;
-            panelPositions.Location = new Point(12, 50);
-            panelPositions.Name = "panelPositions";
-            panelPositions.Size = new Size(401, 229);
-            panelPositions.TabIndex = 5;
-            // 
             // label3
             // 
-            label3.Location = new Point(436, 66);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(623, 110);
             label3.Name = "label3";
-            label3.Size = new Size(139, 59);
+            label3.Size = new Size(199, 98);
             label3.TabIndex = 6;
             label3.Text = "Click checkbox when done submitting a value";
-            label3.Click += label3_Click;
             // 
             // Submit
             // 
-            Submit.Location = new Point(431, 343);
+            Submit.Location = new Point(616, 572);
+            Submit.Margin = new Padding(4, 5, 4, 5);
             Submit.Name = "Submit";
-            Submit.Size = new Size(117, 23);
+            Submit.Size = new Size(167, 38);
             Submit.TabIndex = 7;
             Submit.Text = "Perform Actions";
             Submit.UseVisualStyleBackColor = false;
@@ -104,19 +92,21 @@
             // ddlPresets
             // 
             ddlPresets.FormattingEnabled = true;
-            ddlPresets.Location = new Point(181, 19);
+            ddlPresets.Location = new Point(259, 32);
+            ddlPresets.Margin = new Padding(4, 5, 4, 5);
             ddlPresets.Name = "ddlPresets";
-            ddlPresets.Size = new Size(121, 23);
+            ddlPresets.Size = new Size(171, 33);
             ddlPresets.TabIndex = 8;
             ddlPresets.Text = "Presets";
             // 
             // btnSave
             // 
             btnSave.Image = (Image)resources.GetObject("btnSave.Image");
-            btnSave.Location = new Point(308, 14);
+            btnSave.Location = new Point(440, 23);
+            btnSave.Margin = new Padding(4, 5, 4, 5);
             btnSave.Name = "btnSave";
-            btnSave.Padding = new Padding(2, 0, 0, 0);
-            btnSave.Size = new Size(35, 32);
+            btnSave.Padding = new Padding(3, 0, 0, 0);
+            btnSave.Size = new Size(50, 53);
             btnSave.TabIndex = 9;
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += button1_Click;
@@ -124,29 +114,48 @@
             // btnLoad
             // 
             btnLoad.Image = Properties.Resources.load;
-            btnLoad.Location = new Point(140, 14);
+            btnLoad.Location = new Point(200, 23);
+            btnLoad.Margin = new Padding(4, 5, 4, 5);
             btnLoad.Name = "btnLoad";
-            btnLoad.Padding = new Padding(2, 0, 0, 0);
-            btnLoad.Size = new Size(35, 32);
+            btnLoad.Padding = new Padding(3, 0, 0, 0);
+            btnLoad.Size = new Size(50, 53);
             btnLoad.TabIndex = 10;
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += button2_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(30, 511);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 25);
+            label4.TabIndex = 11;
+            label4.Text = "label4";
+            // 
+            // panelPositions
+            // 
+            panelPositions.AutoScroll = true;
+            panelPositions.BorderStyle = BorderStyle.FixedSingle;
+            panelPositions.Location = new Point(16, 84);
+            panelPositions.Name = "panelPositions";
+            panelPositions.Size = new Size(601, 398);
+            panelPositions.TabIndex = 12;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(591, 378);
+            ClientSize = new Size(844, 630);
+            Controls.Add(panelPositions);
+            Controls.Add(label4);
             Controls.Add(btnLoad);
             Controls.Add(btnSave);
             Controls.Add(ddlPresets);
             Controls.Add(Submit);
             Controls.Add(label3);
-            Controls.Add(panelPositions);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnAddPosition);
-            Margin = new Padding(2);
             Name = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -156,11 +165,12 @@
         private Button btnAddPosition;
         private Label label1;
         private Label label2;
-        private Positions panelPositions;
         private Label label3;
         private Button Submit;
         private ComboBox ddlPresets;
         private Button btnSave;
         private Button btnLoad;
+        private Label label4;
+        private Panel panelPositions;
     }
 }

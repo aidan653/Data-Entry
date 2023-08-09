@@ -39,16 +39,16 @@ namespace Remedy_Bulk_Change
                     keyValuePairs.Add(p, "");
                 else
                 {
-                    Point p2 = new Point(p.X, p.Y + 1);
-                    keyValuePairs.Add(p2, "");
+                    Point p21 = new Point(p.X, p.Y + 1);
+                    keyValuePairs.Add(p21, "");
                 }
             else
                 if (!keyValuePairs.ContainsKey(p))
                     keyValuePairs.Add(p, value);
                 else
                 {
-                    Point p2 = new Point(p.X, p.Y + 1);
-                    keyValuePairs.Add(p2, value);
+                    Point p22 = new Point(p.X, p.Y + 1);
+                    keyValuePairs.Add(p22, value);
                 }
         }
     }

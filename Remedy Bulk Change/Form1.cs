@@ -49,9 +49,9 @@ namespace Remedy_Bulk_Change
                 back.Controls.Add(value);
                 back.Controls.Add(coords);
                 back.ForeColor = SystemColors.ControlDark;
-                back.Location = new Point(3, 3 + (32 * i));
+                back.Location = new Point(3, 3 + (42 * i));
                 back.Name = "panelPosition" + i;
-                back.Size = new Size(panelPositions.Width - 25, 32);
+                back.Size = new Size(panelPositions.Width - 25, 42);
                 back.TabIndex = 0;
                 back.Paint += panel1_Paint_1;
                 coords.AutoSize = true;
@@ -62,13 +62,13 @@ namespace Remedy_Bulk_Change
                 coords.Size = new Size(45, 25);
                 coords.TabIndex = 0;
                 coords.Text = "Press RShift...";
-                value.Location = new Point(125, 2);
+                value.Location = new Point(155, 3);
                 value.Name = "textValue" + i;
                 value.Size = new Size(220, 31);
                 value.TabIndex = 1;
                 value.TextChanged += textBox1_TextChanged;
                 chk.AutoSize = true;
-                chk.Location = new Point(350, 7);
+                chk.Location = new Point(390, 9);
                 chk.Name = "chk" + i;
                 back.Controls.Add(coords);
                 back.Controls.Add(value);
@@ -159,18 +159,6 @@ namespace Remedy_Bulk_Change
             positions.AddPosition(myCoords[0].Text, myValue[0].Text);
             i++;
         }
-        private void MyPanelScroll_Handler(System.Object sender, System.Windows.Forms.ScrollEventArgs e)
-        {
-            Panel p = (Panel)sender;
-            if (e.ScrollOrientation == ScrollOrientation.HorizontalScroll)
-            {
-                p.HorizontalScroll.Value = e.NewValue;
-            }
-            else if (e.ScrollOrientation == ScrollOrientation.VerticalScroll)
-            {
-                p.VerticalScroll.Value = e.NewValue;
-            }
-        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MyInputs.Stop();
@@ -180,33 +168,31 @@ namespace Remedy_Bulk_Change
             foreach (var item in positions.keyValuePairs)
             {
                 MyInputs.MoveMouse(item.Key);
+                //sleep
+                Thread.Sleep(800);
                 if (item.Value != "")
-                {
-                    //sleep
-                    Thread.Sleep(1500);
-                }
-                MyInputs.EnterString(item.Value);
+                    MyInputs.EnterString(item.Value);
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new Form();
             form.Text = "Enter a preset name:";
-            form.Size = new Size(300, 100);
+            form.Size = new Size(300, 200);
             form.AutoSize = true;
-            form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            //form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ControlBox = false;
             form.ShowIcon = false;
             form.ShowInTaskbar = false;
             form.TopMost = true;
             TextBox textbox = new TextBox();
-            textbox.Size = new Size(150, 25);
+            textbox.Size = new Size(250, 25);
             textbox.Location = new Point(6, 6);
             Button submit = new Button();
             submit.Text = "Submit";
-            submit.Size = new Size(60, 20);
-            submit.Location = new Point(100, 50);
+            submit.Size = new Size(100, 40);
+            submit.Location = new Point(150, 50);
             submit.Click += (s, args) =>
             {
                 if (textbox.Text != "")
@@ -218,8 +204,8 @@ namespace Remedy_Bulk_Change
             };
             Button cancel = new Button();
             cancel.Text = "Cancel";
-            cancel.Size = new Size(60, 20);
-            cancel.Location = new Point(6, 50);
+            cancel.Size = new Size(100, 40);
+            cancel.Location = new Point(10, 50);
             cancel.Click += (s, args) =>
             {
                 form.Close();
