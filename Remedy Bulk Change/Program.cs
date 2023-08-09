@@ -21,7 +21,24 @@ namespace Remedy_Bulk_Change
 
     }
     internal class MemorablePositions {
-         public IDictionary<Label, TextBox> keyValuePairs = new Dictionary<Label, TextBox>();
+         public IDictionary<Point, String> keyValuePairs = new Dictionary<Point, String>();
+
+        //AddPosition(string xy, string value) converts the string xy into a point and adds it to the dictionary along with the value if value is null just add ""
+        public void AddPosition(string xy, string value)
+        {
+            Point p = new Point();
+            string[] coords = xy.Split(',');
+            //remove "{X=" and "{Y=" from coords[0] and coords[1]
+            coords[0] = coords[0].Substring(3);
+            coords[1] = coords[1].Substring(2);
+            coords[1] = coords[1].Substring(0, coords[1].Length - 1);
+            p.X = int.Parse(coords[0]);
+            p.Y = int.Parse(coords[1]);
+            if (value == null)
+                keyValuePairs.Add(p, "");
+            else
+                keyValuePairs.Add(p, value);
+        }
     }
     internal class MyInputs
     {
@@ -64,7 +81,6 @@ namespace Remedy_Bulk_Change
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook,
             LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
@@ -74,11 +90,20 @@ namespace Remedy_Bulk_Change
         private static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode,
-            IntPtr wParam, IntPtr lParam);
-
+        private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
+        public static void EnterString(string s)
+        {
+            //send ctrl+a to select all
+            if (s.Length > 0)
+                SendKeys.Send("^a");
+            foreach (var c in s)
+            {
+                SendKeys.SendWait(c.ToString());
+            }
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct POINT
         {
@@ -104,7 +129,6 @@ namespace Remedy_Bulk_Change
         const int MOUSEEVENTF_MIDDLEUP = 0x00000040;
         const int MOUSEEVENTF_WHEEL = 0x00000800;
         const int MOUSEEVENTF_ABSOLUTE = 0x00008000;
-
         public static System.Drawing.Point GetCursorPosition()
         {
             POINT lpPoint;
@@ -115,7 +139,7 @@ namespace Remedy_Bulk_Change
 
             return lpPoint;
         }
-        public void moveMouse(System.Drawing.Point p)
+        public static void MoveMouse(System.Drawing.Point p)
         {
             SetCursorPos(p.X, p.Y);
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);

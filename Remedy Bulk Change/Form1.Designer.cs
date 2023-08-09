@@ -28,120 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelPositions = new Panel();
-            panelTemplate = new Panel();
-            textTemplate = new TextBox();
-            labelTemplate = new Label();
-            scrollPositions = new VScrollBar();
             btnAddPosition = new Button();
             label1 = new Label();
             label2 = new Label();
-            panelTemplate.SuspendLayout();
+            panelPositions = new Positions();
+            label3 = new Label();
+            Submit = new Button();
             SuspendLayout();
-            // 
-            // panelPositions
-            // 
-            panelPositions.BorderStyle = BorderStyle.FixedSingle;
-            panelPositions.Location = new Point(12, 83);
-            panelPositions.Name = "panelPositions";
-            panelPositions.Size = new Size(514, 224);
-            panelPositions.TabIndex = 0;
-            panelPositions.Paint += panel1_Paint;
-            // 
-            // panelTemplate
-            // 
-            panelTemplate.BackColor = SystemColors.ActiveBorder;
-            panelTemplate.BorderStyle = BorderStyle.Fixed3D;
-            panelTemplate.Controls.Add(textTemplate);
-            panelTemplate.Controls.Add(labelTemplate);
-            panelTemplate.ForeColor = SystemColors.ControlDark;
-            panelTemplate.Location = new Point(129, 433);
-            panelTemplate.Name = "panelTemplate";
-            panelTemplate.Size = new Size(506, 51);
-            panelTemplate.TabIndex = 0;
-            panelTemplate.Paint += panel1_Paint_1;
-            // 
-            // textTemplate
-            // 
-            textTemplate.Location = new Point(251, 8);
-            textTemplate.Name = "textTemplate";
-            textTemplate.Size = new Size(220, 31);
-            textTemplate.TabIndex = 1;
-            textTemplate.TextChanged += textBox1_TextChanged;
-            // 
-            // labelTemplate
-            // 
-            labelTemplate.AutoSize = true;
-            labelTemplate.BackColor = SystemColors.ActiveBorder;
-            labelTemplate.ForeColor = SystemColors.ActiveCaptionText;
-            labelTemplate.Location = new Point(31, 11);
-            labelTemplate.Name = "labelTemplate";
-            labelTemplate.Size = new Size(59, 25);
-            labelTemplate.TabIndex = 0;
-            labelTemplate.Text = "label3";
-            // 
-            // scrollPositions
-            // 
-            scrollPositions.Location = new Point(529, 83);
-            scrollPositions.Name = "scrollPositions";
-            scrollPositions.Size = new Size(26, 224);
-            scrollPositions.TabIndex = 1;
             // 
             // btnAddPosition
             // 
-            btnAddPosition.Location = new Point(390, 31);
+            btnAddPosition.Location = new Point(273, 19);
+            btnAddPosition.Margin = new Padding(2);
             btnAddPosition.Name = "btnAddPosition";
-            btnAddPosition.Size = new Size(136, 34);
+            btnAddPosition.Size = new Size(95, 20);
             btnAddPosition.TabIndex = 2;
             btnAddPosition.Text = "Add Position";
             btnAddPosition.UseVisualStyleBackColor = true;
+            btnAddPosition.Click += btnAddPosition_Click_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(12, 33);
+            label1.Location = new Point(8, 20);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(185, 32);
+            label1.Size = new Size(121, 21);
             label1.TabIndex = 3;
             label1.Text = "Added Positions";
             // 
             // label2
             // 
-            label2.Location = new Point(532, 22);
+            label2.Location = new Point(413, 9);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(206, 61);
+            label2.Size = new Size(144, 37);
             label2.TabIndex = 4;
-            label2.Text = "Hover over position and press enter to save";
+            label2.Text = "Hover over position and press right shift to save";
+            label2.Click += label2_Click_1;
+            // 
+            // panelPositions
+            // 
+            panelPositions.AutoScroll = true;
+            panelPositions.BorderStyle = BorderStyle.FixedSingle;
+            panelPositions.Location = new Point(12, 50);
+            panelPositions.Name = "panelPositions";
+            panelPositions.Size = new Size(401, 229);
+            panelPositions.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.Location = new Point(418, 60);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(139, 59);
+            label3.TabIndex = 6;
+            label3.Text = "Click checkbox when done submitting a value";
+            label3.Click += label3_Click;
+            // 
+            // Submit
+            // 
+            Submit.Location = new Point(431, 343);
+            Submit.Name = "Submit";
+            Submit.Size = new Size(117, 23);
+            Submit.TabIndex = 7;
+            Submit.Text = "Perform Actions";
+            Submit.UseVisualStyleBackColor = false;
+            Submit.Click += Submit_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 630);
-            Controls.Add(panelTemplate);
+            ClientSize = new Size(560, 378);
+            Controls.Add(Submit);
+            Controls.Add(label3);
+            Controls.Add(panelPositions);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnAddPosition);
-            Controls.Add(scrollPositions);
-            Controls.Add(panelPositions);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
-            panelTemplate.ResumeLayout(false);
-            panelTemplate.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel panelPositions;
-        private VScrollBar scrollPositions;
         private Button btnAddPosition;
         private Label label1;
         private Label label2;
-        private Panel panelTemplate;
-        private Label labelTemplate;
-        private TextBox textTemplate;
+        private Positions panelPositions;
+        private Label label3;
+        private Button Submit;
     }
 }
