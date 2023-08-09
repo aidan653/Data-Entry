@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Xml;
+using Microsoft.Win32;
 
 namespace Remedy_Bulk_Change
 {
@@ -27,22 +28,10 @@ namespace Remedy_Bulk_Change
                     addPostion();
                 }
             };
-            //panelPositions.Scroll += MyPanelScroll_Handler;
-        }
-
-        private void panelPositions_ControlAdded(object sender, ControlEventArgs e)
-        {
-        }
-        private void panelPositions_ControlRemoved(object sender, ControlEventArgs e)
-        {
         }
         private void btnAddPosition_Click_1(object sender, EventArgs e)
         {
             addPostion();
-        }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         private void addPostion()
         {
@@ -170,7 +159,6 @@ namespace Remedy_Bulk_Change
             positions.AddPosition(myCoords[0].Text, myValue[0].Text);
             i++;
         }
-
         private void MyPanelScroll_Handler(System.Object sender, System.Windows.Forms.ScrollEventArgs e)
         {
             Panel p = (Panel)sender;
@@ -183,38 +171,12 @@ namespace Remedy_Bulk_Change
                 p.VerticalScroll.Value = e.NewValue;
             }
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MyInputs.Stop();
         }
-
         private void Submit_Click(object sender, EventArgs e)
         {
-            //for each key val in positions, move mouse to the point from the key, and enter the value
             foreach (var item in positions.keyValuePairs)
             {
                 MyInputs.MoveMouse(item.Key);
@@ -226,12 +188,6 @@ namespace Remedy_Bulk_Change
                 MyInputs.EnterString(item.Value);
             }
         }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new Form();
@@ -273,7 +229,6 @@ namespace Remedy_Bulk_Change
             form.Controls.Add(cancel);
             form.ShowDialog();
         }
-        //WriteToFile(String filename) write to xml file with the name of filename and loop through the positions list and write each position to the file
         private void WriteToFile(string filename)
         {
             XmlWriterSettings settings = new XmlWriterSettings();
@@ -303,10 +258,8 @@ namespace Remedy_Bulk_Change
                 ddlPresets.Items.Add(Path.GetFileNameWithoutExtension(item));
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            //find selected item in ddlPresets loop through the file run addPositionXML for each position in the file
             string preset = ddlPresets.SelectedItem.ToString();
             string file = preset + ".xml";
             if (File.Exists(file))
@@ -327,5 +280,41 @@ namespace Remedy_Bulk_Change
             }
 
         }
+        #region Unused form functions
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void panelPositions_ControlAdded(object sender, ControlEventArgs e)
+        {
+        }
+        private void panelPositions_ControlRemoved(object sender, ControlEventArgs e)
+        {
+        }
+        #endregion
     }
 }
