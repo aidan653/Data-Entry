@@ -35,9 +35,21 @@ namespace Remedy_Bulk_Change
             p.X = int.Parse(coords[0]);
             p.Y = int.Parse(coords[1]);
             if (value == null)
-                keyValuePairs.Add(p, "");
+                if (!keyValuePairs.ContainsKey(p))
+                    keyValuePairs.Add(p, "");
+                else
+                {
+                    Point p2 = new Point(p.X, p.Y + 1);
+                    keyValuePairs.Add(p2, "");
+                }
             else
-                keyValuePairs.Add(p, value);
+                if (!keyValuePairs.ContainsKey(p))
+                    keyValuePairs.Add(p, value);
+                else
+                {
+                    Point p2 = new Point(p.X, p.Y + 1);
+                    keyValuePairs.Add(p2, value);
+                }
         }
     }
     internal class MyInputs
