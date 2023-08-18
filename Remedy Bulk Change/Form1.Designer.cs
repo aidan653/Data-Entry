@@ -39,6 +39,13 @@
             btnLoad = new Button();
             label4 = new Label();
             panelPositions = new Panel();
+            label5 = new Label();
+            textVar1 = new TextBox();
+            textVar2 = new TextBox();
+            textVar4 = new TextBox();
+            textVar3 = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // btnAddPosition
@@ -128,9 +135,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(30, 511);
             label4.Name = "label4";
-            label4.Size = new Size(59, 25);
+            label4.Size = new Size(46, 25);
             label4.TabIndex = 11;
-            label4.Text = "label4";
+            label4.Text = "var1";
             // 
             // panelPositions
             // 
@@ -141,11 +148,73 @@
             panelPositions.Size = new Size(601, 398);
             panelPositions.TabIndex = 12;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(30, 559);
+            label5.Name = "label5";
+            label5.Size = new Size(46, 25);
+            label5.TabIndex = 13;
+            label5.Text = "var2";
+            // 
+            // textVar1
+            // 
+            textVar1.Location = new Point(82, 508);
+            textVar1.Name = "textVar1";
+            textVar1.Size = new Size(175, 31);
+            textVar1.TabIndex = 14;
+            // 
+            // textVar2
+            // 
+            textVar2.Location = new Point(82, 556);
+            textVar2.Name = "textVar2";
+            textVar2.Size = new Size(175, 31);
+            textVar2.TabIndex = 15;
+            // 
+            // textVar4
+            // 
+            textVar4.Location = new Point(346, 556);
+            textVar4.Name = "textVar4";
+            textVar4.Size = new Size(175, 31);
+            textVar4.TabIndex = 19;
+            // 
+            // textVar3
+            // 
+            textVar3.Location = new Point(346, 508);
+            textVar3.Name = "textVar3";
+            textVar3.Size = new Size(175, 31);
+            textVar3.TabIndex = 18;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(294, 559);
+            label6.Name = "label6";
+            label6.Size = new Size(46, 25);
+            label6.TabIndex = 17;
+            label6.Text = "var4";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(294, 511);
+            label7.Name = "label7";
+            label7.Size = new Size(46, 25);
+            label7.TabIndex = 16;
+            label7.Text = "var3";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(844, 630);
+            Controls.Add(textVar4);
+            Controls.Add(textVar3);
+            Controls.Add(label6);
+            Controls.Add(label7);
+            Controls.Add(textVar2);
+            Controls.Add(textVar1);
+            Controls.Add(label5);
             Controls.Add(panelPositions);
             Controls.Add(label4);
             Controls.Add(btnLoad);
@@ -172,5 +241,12 @@
         private Button btnLoad;
         private Label label4;
         private Panel panelPositions;
+        private Label label5;
+        private TextBox textVar1;
+        private TextBox textVar2;
+        private TextBox textVar4;
+        private TextBox textVar3;
+        private Label label6;
+        private Label label7;
     }
 }

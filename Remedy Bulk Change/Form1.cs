@@ -14,6 +14,7 @@ namespace Remedy_Bulk_Change
         bool pressedRShift = true;
         bool valueEntered = true;
         private MemorablePositions positions = new MemorablePositions();
+        IDictionary<String, String> formVars = new Dictionary<String, String>();
         public Form1()
         {
             InitializeComponent();
@@ -165,13 +166,18 @@ namespace Remedy_Bulk_Change
         }
         private void Submit_Click(object sender, EventArgs e)
         {
+            formVars.Add("var1", textVar1.Text);
+            formVars.Add("var2", textVar2.Text);
+            formVars.Add("var3", textVar3.Text)   
             foreach (var item in positions.keyValuePairs)
             {
                 MyInputs.MoveMouse(item.Key);
                 //sleep
                 Thread.Sleep(800);
-                if (item.Value != "")
+                if (item.Value != "" && !formVars.ContainsKey(item.Value))
                     MyInputs.EnterString(item.Value);
+                else if (formVars.ContainsKey(item.Value))
+                    MyInputs.EnterString(formVars[item.Value]);
             }
         }
         private void button1_Click(object sender, EventArgs e)
